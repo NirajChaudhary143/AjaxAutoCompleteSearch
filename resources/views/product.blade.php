@@ -10,12 +10,25 @@
 </head>
 <body>
     <div class="col col-md-5 m-auto pt-3">
-
-            <label for="">Search</label>
-            <input type="search" class="form-control" name="search" id="search" value="">
+      <form action="" method="get">
+        <label for="">Search</label>
+        <div class="row">
+          <div class="col col-md-5">
+            <input type="search" class="form-control" name="search" id="search" value="{{$search}}">
             <div id="product_list">
-
+  
             </div>
+          </div>
+  
+          <div class="col col-md-2" ><input class="btn btn-primary" type="submit" value="Search"></div>
+        </div>
+        @if ($search)
+        <a href="{{route('product')}}" class="btn btn-danger">Reset</a>
+        @endif
+       
+        
+      </form>
+            
           
 
     </div>    

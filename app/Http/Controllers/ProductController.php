@@ -23,7 +23,15 @@ class ProductController extends Controller
             }
             return $output;
         }
-        $products = Product::all();
-        return view('product',compact('products'));
+        $search = $request['search'] ?? "";
+        if($search){
+            $products = Product::where('name','LIKE',"$search%")->get();
+        }
+        else{
+
+            $products = Product::all();
+        }
+        
+        return view('product',compact('products','search'));
     }
 }
