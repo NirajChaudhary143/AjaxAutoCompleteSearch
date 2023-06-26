@@ -19,7 +19,7 @@
           
 
     </div>    
-  {{-- <div class="col col-md-5 m-auto pt-3">
+  <div class="col col-md-5 m-auto pt-3">
     <table class="table">
         <thead>
           <tr>
@@ -40,7 +40,7 @@
           
         </tbody>
       </table>
-  </div> --}}
+  </div>
 
     <script>
         $(document).ready(function(){
@@ -55,6 +55,11 @@
                     }
                 });
             });
+            $(document).on('click','li',function(){
+              var value = $(this).text();
+              $("#search").val(value);
+              $("#product_list").html("");
+            }); 
         });
     </script>
 </body>

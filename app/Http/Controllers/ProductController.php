@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function AjaxSearch(Request $request){
-        // $search =$request['search'] ?? "";
         if($request->ajax()){
             $data = Product::where('name','LIKE',"$request->name%")->get();
             $output = '';
@@ -24,7 +23,7 @@ class ProductController extends Controller
             }
             return $output;
         }
-        // $products = Product::all();
-        return view('product');
+        $products = Product::all();
+        return view('product',compact('products'));
     }
 }
